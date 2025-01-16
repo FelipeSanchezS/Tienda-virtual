@@ -118,6 +118,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    font-size: 14px;
 }
 
 
@@ -229,7 +230,8 @@ container-user{
 .menu{
   display: flex;
   gap: 2rem;
-  margin-left: 20px
+  margin-left: 30px;
+  
 }
 
 .menu li{
@@ -239,7 +241,7 @@ container-user{
 .menu a{
   text-decoration: none;
   color: #000000;
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--dark-color);
@@ -275,10 +277,11 @@ container-user{
   align-items: center;
   gap: 1rem;
   border: 2px solid #e2e2e2;
-  /* border-radius: 3rem; */
+  border-radius: 3rem;
   background-color: #fff;
   position: relative;
-  height: 4.4rem;
+  height: 2.7rem;
+  margin-right: 20px;
 }
 
 .search-form input{
@@ -291,6 +294,8 @@ container-user{
   width: 25rem;
   font-size: 1.4rem;
   cursor: pointer;
+  text-align: center;
+  height: 20px;
 }
 
 .search-form input::-webkit-search-cancel-button{
@@ -301,9 +306,10 @@ container-user{
   border: none;
   background-color: var(--primary-color);
   color: #050505;
-  padding: 1rem;
+ /*  padding: 1rem; */
   border-radius: 50%;
   cursor: pointer;
+  width: 3.3rem;
 }
 
 .search-form .btn-search i{
@@ -364,13 +370,14 @@ li .actual{
 
 .contenedor .contenedor-items .item .imagen-item{
     width: 100%;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
     border-radius: 10px;
 }
 
 .contenedor .contenedor-items .item .titulo-item{
-    margin-top: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
     display: block;
     font-weight: bold;
     text-align: center;
