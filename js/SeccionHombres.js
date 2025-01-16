@@ -18,6 +18,18 @@ function ready(){
         var button = botonesEliminar[i];
         button.addEventListener('click', eliminarItemCarrito);
     }
+    //Agrego funcion de sumar cantidad
+    var botonesSumarCantidad = document.getElementsByClassName('sumar-cantidad');
+    for(var i = 0; i < botonesSumarCantidad.length; i++){
+        var button = botonesSumarCantidad[i];
+        button.addEventListener('click', sumarCantidad);
+    }
+    // agrego funcin para eliminar cantidad
+    var botonesRestarCantidad = document.getElementsByClassName('restar-cantidad');
+    for(var i = 0; i < botonesRestarCantidad.length; i++){
+        var button = botonesRestarCantidad[i];
+        button.addEventListener('click', restarCantidad);
+    }
 }
 
 //eliminar item del carrito
@@ -50,6 +62,47 @@ function actualizarTotal(){
         var cantidadItem = item.getElementsByClassName('carrito-item-cantidad')[0];
         var cantidad = cantidadItem.value;
         console.log(cantidad);
+        total = total + (precio * cantidad);
+    }
+    total = Math.round(total * 100) / 100;
+    document.getElementsByClassName('carrito-precio-total')[0].innerText = '$' + total.toLocaleString("en-US")+',00';
+
+}
+
+//funcion para ocultar crrito
+function ocultarCarrito(){
+    var carritoItems = document.getElementsByClassName('carrito-item1')[0];
+    if(carritoItems.childElementCount==0){
+        var carrito = document.getElementsByClassName('carrito')[0];
+        carrito.style.marginRight = '-100%';
+        carrito.style.opacity = '0';
+        carritoVisible = false;
+    
+        var items =document.getElementsByClassName('contenedor-items')[0];
+        items.style.width = '100%';
     }
 }
 
+//aumento de la cantidad de elementos elejidos
+function sumarCantidad(event){
+    var button = event.target;
+    var item = button.parentElement.parentElement;
+    var cantidadItem = item.getElementsByClassName('carrito-item-cantidad')[0];
+    var cantidad = cantidadItem.value;
+    cantidad++;
+    cantidadItem.value = cantidad;
+    actualizarTotal();
+}
+
+//resto de la cantidad de elementos elejidos
+function restarCantidad(event){
+    var button = event.target;
+    var item = button.parentElement.parentElement;
+    var cantidadItem = item.getElementsByClassName('carrito-item-cantidad')[0];
+    var cantidad = cantidadItem.value;
+    cantidad--;
+    if(cantidad>=1){
+        cantidadItem.value = cantidad;
+        actualizarTotal();
+    }
+}
